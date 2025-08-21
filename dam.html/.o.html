@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f2f2f2;
+        }
+        .container {
+            background: white;
+            padding: 25px 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            width: 320px;
+        }
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .input-box {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .input-box input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            font-size: 14px;
+        }
+        .input-box input:focus {
+            border-color: #007BFF;
+        }
+        .error {
+            color: red;
+            font-size: 13px;
+            height: 15px;
+            margin-top: 3px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        .success {
+            text-align: center;
+            margin-top: 10px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login Page</h2>
+        <div class="input-box">
+            <input type="text" id="username" placeholder="Enter username">
+            <div id="userError" class="error"></div>
+        </div>
+        <div class="input-box">
+            <input type="password" id="password" placeholder="Enter password">
+            <div id="passError" class="error"></div>
+        </div>
+        <button class="btn" id="loginBtn">Login</button>
+        <div id="successMsg" class="success"></div>
+    </div>
+
+    <script>
+        const username = document.getElementById("username");
+        const password = document.getElementById("password");
+        const userError = document.getElementById("userError");
+        const passError = document.getElementById("passError");
+        const successMsg = document.getElementById("successMsg");
+        const loginBtn = document.getElementById("loginBtn");
+
+        loginBtn.addEventListener("click", () => {
+            let valid = true;
+            userError.innerText = "";
+            passError.innerText = "";
+            successMsg.innerText = "";
+
+            // Username validation
+            if (username.value.length < 3) {
+                userError.innerText = "Username must be at least 3 characters";
+                valid = false;
+            }
+
+            // Password validation
+            if (password.value.length < 5) {
+                passError.innerText = "Password must be at least 5 characters";
+                valid = false;
+            }
+
+            // If valid show success
+            if (valid) {
+                successMsg.innerText = "Login Successful!";
+                username.value = "";
+                password.value = "";
+            }
+        });
+    </script>
+</body>
+</html>
