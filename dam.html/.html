@@ -6,10 +6,63 @@
     <title>Document</title>
 </head>
 <body>
+    <style>
+      .mid{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        gap: 20px;
+      }
+    </style>
+     <div class="mid">
+        <h2> Login Page</h2>
 
-    <h1>Hello, World!</h1>
-    <p>This is a simple HTML document.</p>
+        <input type="text" id="username" placeholder="Enter the name">
 
+        <div id="userplase"></div>
+        <input type="text" id="password" placeholder="Enter the password">
+          
+        <div id="passwordplace"></div>
+        <button class="btn1">Submit</button>
+        
+        
+     </div>
+
+     <script>
+         let user = document.getElementById("username").value;
+         let pass = document.getElementById("password").value;
+         let userror = document.getElementById("userplace").value;
+         let paserror = document.getElementById("passwordplace")
+         let btn = document.getElementById(".btn1").value;
+
+
+           btn.addEventListener("click", () => {
+
+            if (user.value.length < 3) {
+                userror.innerText = "you want to type more then 3 char";
+            }
+             else   {
+                user.innerText =" ";
+            }
+            if (pass.value.length < 5) {
+                paserror.innerText = "Password must be at least 5 characters";
+            } else {
+                paserror.innerText = "";
+            
+            }
+            
+           })
+       
+
+       
+    
+
+
+
+     </script>
+    
     
 </body>
 </html>
